@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.0"
+      version = "~> 5.0"
     }
   }
 }
@@ -16,7 +16,7 @@ provider "aws" {
 
 // main vpc 
 resource "aws_vpc" "myvpc" {
-  cidr_block       = "10.0.0.0/16" #65536
+  cidr_block       = "10.0.0.0/16" //65536
   instance_tenancy = "default"
 
   tags = {
@@ -29,7 +29,7 @@ resource "aws_vpc" "myvpc" {
 // public subnet
 resource "aws_subnet" "pubsub" {
   vpc_id     = aws_vpc.myvpc.id
-  cidr_block = "10.0.1.0/24" #256
+  cidr_block = "10.0.1.0/24" //256
   availability_zone = "us-east-2a"
 
   tags = {
